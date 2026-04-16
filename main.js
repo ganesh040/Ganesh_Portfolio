@@ -107,9 +107,9 @@ function timeAgo(dateStr) {
 async function loadGitHub() {
   try {
     const [userRes, reposRes, eventsRes] = await Promise.all([
-      fetch(`https://api.github.com/users/${GITHUB_USER}`),
-      fetch(`https://api.github.com/users/${GITHUB_USER}/repos?per_page=100&sort=updated`),
-      fetch(`https://api.github.com/users/${GITHUB_USER}/events/public?per_page=30`),
+      fetch(`https://api.github.com/users/${GITHUB_USER}`, { headers: { Accept: 'application/vnd.github+json' } }),
+      fetch(`https://api.github.com/users/${GITHUB_USER}/repos?per_page=100&sort=updated`, { headers: { Accept: 'application/vnd.github+json' } }),
+      fetch(`https://api.github.com/users/${GITHUB_USER}/events/public?per_page=30`, { headers: { Accept: 'application/vnd.github+json' } }),
     ]);
 
     const user   = await userRes.json();
@@ -170,14 +170,30 @@ async function loadGitHub() {
     // Recent commits from push events
     const pushes  = Array.isArray(events) ? events.filter(e => e.type === 'PushEvent') : [];
     const commits = [];
-    pushes.forEach(e => {
-      (e.payload.commits || []).forEach(c => {
-        commits.push({
-          msg:  c.message.split('\n')[0],
-          repo: e.repo.name.split('/')[1],
-          time: e.created_at,
+    pushes.slice(0, 8).forEach(e => {
+      const repoName = e.repo?.name?.split('/')[1] || e.repo?.name || 'repository';
+      const branch   = e.payload?.ref?.replace('refs/heads/', '') || 'branch';
+      const timestamp = e.created_at;
+
+      if (Array.isArray(e.payload?.commits) && e.payload.commits.length) {
+        e.payload.commits.forEach(c => {
+          const sha = c.sha || c.id || '';
+          commits.push({
+            msg:  (c.message || `Push to ${branch}`).split('\n')[0],
+            repo: repoName,
+            time: timestamp,
+            url:  c.url || (sha ? `https://github.com/${e.repo.name}/commit/${sha}` : null),
+          });
         });
-      });
+      } else if (e.payload?.head) {
+        const sha = e.payload.head;
+        commits.push({
+          msg:  `Push to ${branch}`,
+          repo: repoName,
+          time: timestamp,
+          url:  `https://github.com/${e.repo.name}/commit/${sha}`,
+        });
+      }
     });
 
     const shown = commits.slice(0, 6);
@@ -185,7 +201,7 @@ async function loadGitHub() {
       ? shown.map(c => `
           <div class="commit-item">
             <span class="commit-dot">⊶</span>
-            <span class="commit-msg">${c.msg.substring(0, 36)}${c.msg.length > 36 ? '…' : ''}</span>
+            <span class="commit-msg">${c.url ? `<a href="${c.url}" target="_blank" rel="noopener">${c.msg.substring(0, 36)}${c.msg.length > 36 ? '…' : ''}</a>` : `${c.msg.substring(0, 36)}${c.msg.length > 36 ? '…' : ''}`}</span>
             <span class="commit-repo">${c.repo}</span>
             <span class="commit-time">${timeAgo(c.time)}</span>
           </div>`).join('')
