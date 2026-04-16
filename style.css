@@ -253,6 +253,9 @@ nav button.active::before { content: '> '; }
 .pdesc   { color: #009922; font-size: 12px; line-height: 1.6; margin-bottom: 7px; }
 .pmetric { color: #00cc33; font-size: 11px; margin-bottom: 7px; }
 .pmetric span { color: #00ff41; }
+.plink { margin-bottom: 8px; }
+.plink a { color: #00ff41; text-decoration: underline; font-size: 11px; }
+.plink a:hover { color: #ccff66; }
 
 /* ── SKILLS ───────────────────────────────────────────────── */
 .skill-group   { margin-bottom: 1.2rem; }
