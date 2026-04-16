@@ -1,0 +1,429 @@
+/* ============================================================
+   GANESH REDDY GUDIBANDI — Terminal Portfolio
+   style.css
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+/* ── RESET & BASE ─────────────────────────────────────────── */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: #000;
+  color: #00ff41;
+  font-family: 'Share Tech Mono', 'Courier New', monospace;
+  font-size: 14px;
+  line-height: 1.6;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ── CRT EFFECTS ──────────────────────────────────────────── */
+.scanline {
+  pointer-events: none;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0px, transparent 3px,
+    rgba(0,0,0,0.08) 3px, rgba(0,0,0,0.08) 4px
+  );
+  z-index: 999;
+}
+
+.crt { animation: flicker 8s infinite; }
+
+@keyframes flicker {
+  0%, 99%, 100% { opacity: 1; }
+  98.5%  { opacity: 0.92; }
+  98.8%  { opacity: 1; }
+  99.2%  { opacity: 0.95; }
+}
+
+/* ── LAYOUT ───────────────────────────────────────────────── */
+.terminal {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 1.5rem 1.5rem 4rem;
+}
+
+/* ── BOOT LINES ───────────────────────────────────────────── */
+.boot-line {
+  color: #00cc33;
+  font-size: 11px;
+  opacity: 0.65;
+  margin-bottom: 2px;
+}
+
+/* ── HEADER ───────────────────────────────────────────────── */
+.header {
+  border: 1px solid #00ff41;
+  padding: 1rem 1.4rem;
+  margin: 1.2rem 0 1.5rem;
+  position: relative;
+}
+
+.header::before {
+  content: '[ PORTFOLIO.SYS v3.0.0 ]';
+  position: absolute;
+  top: -9px; left: 12px;
+  background: #000;
+  padding: 0 8px;
+  font-size: 11px;
+  color: #00cc33;
+}
+
+.hname {
+  font-size: 20px;
+  letter-spacing: 4px;
+  animation: glow 3s ease-in-out infinite;
+}
+
+@keyframes glow {
+  0%, 100% { text-shadow: 0 0 8px #00ff41; }
+  50%       { text-shadow: 0 0 20px #00ff41, 0 0 40px #00aa22; }
+}
+
+.htitle {
+  color: #00cc33;
+  font-size: 12px;
+  margin-top: 3px;
+  letter-spacing: 2px;
+}
+
+.hmeta {
+  color: #009922;
+  font-size: 11px;
+  margin-top: 6px;
+}
+
+/* ── NAV ──────────────────────────────────────────────────── */
+nav {
+  display: flex;
+  gap: 0;
+  margin-bottom: 1.8rem;
+  border-bottom: 1px solid #003300;
+  flex-wrap: wrap;
+}
+
+nav button {
+  background: transparent;
+  border: none;
+  color: #009922;
+  font-family: inherit;
+  font-size: 12px;
+  padding: 7px 14px;
+  cursor: pointer;
+  border-right: 1px solid #003300;
+  transition: all 0.15s;
+  letter-spacing: 1px;
+}
+
+nav button:hover,
+nav button.active {
+  background: #001a00;
+  color: #00ff41;
+  text-shadow: 0 0 8px #00ff41;
+}
+
+nav button.active::before { content: '> '; }
+
+/* ── SECTIONS ─────────────────────────────────────────────── */
+.section { display: none; }
+.section.active { display: block; }
+
+/* ── PROMPT ───────────────────────────────────────────────── */
+.prompt {
+  color: #00ff41;
+  margin-bottom: 1rem;
+  font-size: 13px;
+}
+.prompt::before { content: 'gani@portfolio:~$ '; color: #00cc33; }
+
+/* ── OUTPUT BLOCKS ────────────────────────────────────────── */
+.output-block {
+  border-left: 2px solid #003300;
+  padding-left: 1rem;
+  margin-bottom: 1.4rem;
+}
+
+.label {
+  color: #00cc33;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 4px;
+}
+
+.value {
+  color: #00ff41;
+  margin-bottom: 10px;
+  font-size: 13px;
+}
+
+/* ── TAGS ─────────────────────────────────────────────────── */
+.tag {
+  display: inline-block;
+  border: 1px solid #005500;
+  padding: 2px 7px;
+  margin: 2px 3px 2px 0;
+  font-size: 11px;
+  color: #00cc33;
+  background: #001100;
+}
+
+/* ── METRICS ──────────────────────────────────────────────── */
+.metric-row {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.metric-box {
+  border: 1px solid #003300;
+  padding: 8px 12px;
+  text-align: center;
+  min-width: 80px;
+}
+
+.metric-num {
+  font-size: 20px;
+  text-shadow: 0 0 8px #00ff41;
+}
+
+.metric-lbl {
+  color: #006600;
+  font-size: 10px;
+  margin-top: 2px;
+}
+
+/* ── CERTS ────────────────────────────────────────────────── */
+.cert-badge {
+  display: inline-block;
+  border: 1px solid #005500;
+  padding: 3px 9px;
+  margin: 3px;
+  font-size: 11px;
+  color: #00cc33;
+  background: #001100;
+}
+.cert-badge::before { content: '[✓] '; color: #00ff41; }
+
+/* ── EXPERIENCE ───────────────────────────────────────────── */
+.exp-entry {
+  margin-bottom: 1.6rem;
+  border-left: 2px solid #003300;
+  padding-left: 1rem;
+}
+
+.etitle  { font-size: 14px; text-shadow: 0 0 6px #00ff41; }
+.ecompany{ color: #00cc33; font-size: 12px; }
+.edate   { color: #006600; font-size: 11px; margin-bottom: 6px; }
+
+.ebullet { color: #009922; font-size: 12px; line-height: 1.7; }
+.ebullet::before      { content: '  ├── '; color: #005500; }
+.ebullet:last-of-type::before { content: '  └── '; color: #005500; }
+
+/* ── PROJECTS ─────────────────────────────────────────────── */
+.project-card {
+  border: 1px solid #003300;
+  padding: 0.9rem 1.1rem;
+  margin-bottom: 0.9rem;
+  position: relative;
+  transition: border-color 0.2s;
+}
+
+.project-card:hover {
+  border-color: #00ff41;
+  background: #001100;
+}
+
+.project-card::before {
+  content: attr(data-id);
+  position: absolute;
+  top: -9px; left: 10px;
+  background: #000;
+  padding: 0 6px;
+  font-size: 11px;
+  color: #009922;
+}
+
+.ptitle  { font-size: 14px; margin-bottom: 4px; text-shadow: 0 0 6px #00ff41; }
+.pdesc   { color: #009922; font-size: 12px; line-height: 1.6; margin-bottom: 7px; }
+.pmetric { color: #00cc33; font-size: 11px; margin-bottom: 7px; }
+.pmetric span { color: #00ff41; }
+
+/* ── SKILLS ───────────────────────────────────────────────── */
+.skill-group   { margin-bottom: 1.2rem; }
+.sgroup-label  { color: #00cc33; font-size: 11px; letter-spacing: 2px; margin-bottom: 6px; text-transform: uppercase; }
+
+.skill-row  { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+.sname      { min-width: 200px; color: #009922; font-size: 12px; }
+.sbar-bg    { flex: 1; height: 7px; background: #001100; border: 1px solid #003300; max-width: 260px; }
+.sbar-fill  { height: 100%; background: #00ff41; box-shadow: 0 0 4px #00ff41; transition: width 1s ease-out; }
+.spct       { font-size: 11px; color: #006600; min-width: 32px; }
+
+/* ── STATS ────────────────────────────────────────────────── */
+.live-indicator {
+  font-size: 11px;
+  color: #005500;
+  margin-bottom: 1rem;
+}
+
+.live-dot {
+  display: inline-block;
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: #00ff41;
+  box-shadow: 0 0 6px #00ff41;
+  animation: blink 1.2s step-end infinite;
+  margin-right: 5px;
+  vertical-align: middle;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1.2rem;
+}
+
+.stat-panel {
+  border: 1px solid #003300;
+  padding: 1rem;
+  position: relative;
+}
+
+.stat-panel::before {
+  content: attr(data-title);
+  position: absolute;
+  top: -9px; left: 10px;
+  background: #000;
+  padding: 0 6px;
+  font-size: 11px;
+  color: #009922;
+}
+
+.big-num { font-size: 26px; text-shadow: 0 0 10px #00ff41; line-height: 1; }
+.big-sub { color: #006600; font-size: 11px; margin-top: 2px; }
+
+.commit-item {
+  display: flex;
+  gap: 6px;
+  align-items: flex-start;
+  padding: 5px 0;
+  border-bottom: 1px dotted #002200;
+  font-size: 12px;
+}
+.commit-item:last-child { border-bottom: none; }
+.commit-dot  { color: #00cc33; flex-shrink: 0; }
+.commit-msg  { color: #009922; flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.commit-repo { color: #00ff41; font-size: 11px; flex-shrink: 0; margin: 0 4px; }
+.commit-time { color: #005500; font-size: 10px; flex-shrink: 0; }
+
+.lang-row    { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+.lang-name   { min-width: 90px; color: #00cc33; font-size: 12px; }
+.lang-bar-bg { flex: 1; height: 6px; background: #001100; border: 1px solid #003300; }
+.lang-bar-fill { height: 100%; background: #00ff41; box-shadow: 0 0 3px #00ff41; transition: width 1.2s ease-out; }
+.lang-pct    { font-size: 11px; color: #006600; min-width: 36px; }
+
+.loading-msg { color: #006600; font-size: 12px; animation: pulse 0.8s ease-in-out infinite; }
+@keyframes pulse { 0%, 100% { opacity: 0.4; } 50% { opacity: 1; } }
+.err-msg { color: #550000; font-size: 12px; }
+
+.lc-bar-row  { display: flex; align-items: center; gap: 8px; margin-bottom: 7px; }
+.lc-label    { min-width: 60px; font-size: 12px; }
+.lc-label.easy { color: #00cc33; }
+.lc-label.med  { color: #ccaa00; }
+.lc-label.hard { color: #cc3300; }
+.lc-bar-bg   { flex: 1; height: 9px; background: #001100; border: 1px solid #003300; }
+.lc-bar-fill { height: 100%; transition: width 1.2s ease-out; }
+.lc-bar-fill.easy { background: #00cc33; box-shadow: 0 0 4px #00cc33; }
+.lc-bar-fill.med  { background: #ccaa00; box-shadow: 0 0 4px #ccaa00; }
+.lc-bar-fill.hard { background: #cc3300; box-shadow: 0 0 4px #cc3300; }
+.lc-count    { font-size: 11px; color: #006600; min-width: 50px; text-align: right; }
+
+/* ── EDUCATION ────────────────────────────────────────────── */
+.edu-entry {
+  border: 1px solid #003300;
+  padding: 0.8rem 1rem;
+  margin-bottom: 0.8rem;
+}
+
+.edu-school  { font-size: 13px; text-shadow: 0 0 5px #00ff41; }
+.edu-degree  { color: #00cc33; font-size: 12px; margin-top: 2px; }
+.edu-meta    { color: #006600; font-size: 11px; margin-top: 2px; }
+
+/* ── CONTACT ──────────────────────────────────────────────── */
+.contact-line {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 9px;
+  padding: 5px 0;
+  border-bottom: 1px dotted #002200;
+}
+
+.ckey { color: #00cc33; font-size: 12px; min-width: 80px; }
+
+.cval {
+  color: #00ff41;
+  font-size: 13px;
+  text-decoration: none;
+}
+
+.cval:hover {
+  text-shadow: 0 0 8px #00ff41;
+  text-decoration: underline;
+}
+
+.open-status { text-shadow: 0 0 6px #00ff41; animation: glow 2s infinite; }
+
+.contact-note {
+  margin-top: 1rem;
+  color: #004400;
+  font-size: 12px;
+}
+
+/* ── CURSOR ───────────────────────────────────────────────── */
+.cursor-blink {
+  display: inline-block;
+  width: 8px; height: 13px;
+  background: #00ff41;
+  animation: blink 1s step-end infinite;
+  vertical-align: middle;
+  margin-left: 2px;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+/* ── STATUS BAR ───────────────────────────────────────────── */
+.status-bar {
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  background: #001100;
+  border-top: 1px solid #003300;
+  padding: 4px 1.5rem;
+  font-size: 11px;
+  color: #006600;
+  display: flex;
+  justify-content: space-between;
+  z-index: 100;
+}
+
+.status-bar span { color: #009922; }
+
+/* ── RESPONSIVE ───────────────────────────────────────────── */
+@media (max-width: 620px) {
+  .terminal { padding: 1rem; }
+  .hname    { font-size: 15px; letter-spacing: 2px; }
+  .stats-grid { grid-template-columns: 1fr; }
+  nav button  { padding: 6px 9px; font-size: 11px; }
+  .sname      { min-width: 140px; }
+  .metric-box { min-width: 60px; padding: 6px 8px; }
+  .metric-num { font-size: 16px; }
+}

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ganesh Reddy Gudibandi — Portfolio</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="scanline"></div>
+<div class="crt">
+<div class="terminal">
+  <div class="boot-line">BIOS 3.0.0 ... OK</div>
+  <div class="boot-line">Mounting resume data ............... [DONE]</div>
+  <div class="boot-line">Loading PORTFOLIO.SYS .............. [DONE]</div>
+  <div class="boot-line">GitHub API ......................... [CONNECTING]</div>
+
+  <div class="header">
+    <div class="hname">GANESH REDDY GUDIBANDI<span class="cursor-blink"></span></div>
+    <div class="htitle">// FULL STACK DEVELOPER · AI/ML INTEGRATION SPECIALIST</div>
+    <div class="hmeta">[ SEATTLE, WA ] &nbsp;|&nbsp; gudibandiganesh450@gmail.com &nbsp;|&nbsp; AWS CERTIFIED SAA + CCP</div>
+  </div>
+
+  <nav>
+    <button class="active" onclick="show('about',this)">ABOUT</button>
+    <button onclick="show('experience',this)">EXPERIENCE</button>
+    <button onclick="show('projects',this)">PROJECTS</button>
+    <button onclick="show('skills',this)">SKILLS</button>
+    <button onclick="show('stats',this)">STATS</button>
+    <button onclick="show('education',this)">EDUCATION</button>
+    <button onclick="show('contact',this)">CONTACT</button>
+  </nav>
+
+  <!-- ABOUT -->
+  <div id="about" class="section active">
+    <div class="prompt">cat about.txt</div>
+    <div class="output-block">
+      <div class="label">// PROFESSIONAL SUMMARY</div>
+      <div class="value">Highly motivated Software Engineer with 3+ years on modern stack including Java, Kotlin,
+Spring Boot, Node.js, Python, Go, Kafka, PostgreSQL, Kubernetes. Strong expertise in
+back-end technologies designing robust, scalable server-side applications and APIs with
+LLM integration (LangChain, OpenAI API). Full SDLC experience collaborating with
+cross-functional teams. Experience scaling mission-critical systems with test-driven
+development, strong ownership mindset, excellent communication.</div>
+    </div>
+    <div class="output-block">
+      <div class="label">// KEY METRICS</div>
+      <div class="metric-row">
+        <div class="metric-box"><div class="metric-num">3+</div><div class="metric-lbl">YRS EXP</div></div>
+        <div class="metric-box"><div class="metric-num">13K+</div><div class="metric-lbl">USERS SERVED</div></div>
+        <div class="metric-box"><div class="metric-num">30K+</div><div class="metric-lbl">DAILY TXN</div></div>
+        <div class="metric-box"><div class="metric-num">99.8%</div><div class="metric-lbl">UPTIME</div></div>
+        <div class="metric-box"><div class="metric-num">100+</div><div class="metric-lbl">K8S SERVICES</div></div>
+        <div class="metric-box"><div class="metric-num">80%+</div><div class="metric-lbl">TEST COV</div></div>
+      </div>
+    </div>
+    <div class="output-block">
+      <div class="label">// CERTIFICATIONS</div>
+      <div class="value">
+        <span class="cert-badge">AWS Solutions Architect – Associate</span>
+        <span class="cert-badge">AWS Cloud Practitioner</span>
+      </div>
+    </div>
+    <div class="output-block">
+      <div class="label">// CURRENTLY</div>
+      <div class="value">→ Full Stack Developer @ Saayam For All (Oct 2023 – Present)
+→ Building autonomous job application AI pipeline
+→ Deep-diving system design (DDIA) + LeetCode grind
+→ Open to new opportunities</div>
+    </div>
+  </div>
+
+  <!-- EXPERIENCE -->
+  <div id="experience" class="section">
+    <div class="prompt">cat experience.log</div>
+
+    <div class="exp-entry">
+      <div class="etitle">Full Stack Developer</div>
+      <div class="ecompany">Saayam For All</div>
+      <div class="edate">OCT 2023 – PRESENT &nbsp;|&nbsp; REMOTE, UNITED STATES</div>
+      <div class="ebullet">Java, Kotlin, Spring Boot, Node.js, Python backend + React, React Native, TypeScript frontend serving 5K+ users across full SDLC</div>
+      <div class="ebullet">LangChain + OpenAI API LLM-powered Generative AI microservices with RAG pipelines → 40% improvement in volunteer-match accuracy</div>
+      <div class="ebullet">Scalable data pipelines with PostgreSQL, MySQL, MongoDB, Aurora — 99.8% uptime processing 30K+ daily transactions, 30% latency reduction</div>
+      <div class="ebullet">Kafka messaging + Kubernetes SOA with 100+ services in production; architecture discussions, design patterns, best practices</div>
+      <div class="ebullet">TDD with 80%+ coverage using pytest, Jest, JUnit; technical docs, code reviews, pull requests</div>
+    </div>
+
+    <div class="exp-entry">
+      <div class="etitle">Software Engineer</div>
+      <div class="ecompany">Buildbot Technologies Private Limited</div>
+      <div class="edate">FEB 2021 – OCT 2023 &nbsp;|&nbsp; REMOTE</div>
+      <div class="ebullet">Full-stack solutions: Python, Go, Java, Kotlin, Spring Boot, Node.js + React, TypeScript for 8K+ users — 35% performance improvement</div>
+      <div class="ebullet">RESTful APIs with Python (Django, Flask, FastAPI) and Go; PostgreSQL, MySQL, MongoDB, Redis — 30% latency reduction</div>
+      <div class="ebullet">Microservices + Kafka event-driven systems; Docker + Kubernetes achieving 99% uptime</div>
+      <div class="ebullet">TDD with pytest, testing/testify (Go), JUnit — 80%+ coverage; code reviews, PR management</div>
+      <div class="ebullet">AWS (EC2, S3, CloudFront, RDS, Lambda) + Terraform + GitHub Actions CI/CD; CloudWatch for 3K+ concurrent users</div>
+      <div class="ebullet">12+ production features in Agile/Scrum; sprint planning, stand-ups, retrospectives, stakeholder collaboration</div>
+    </div>
+  </div>
+
+  <!-- PROJECTS -->
+  <div id="projects" class="section">
+    <div class="prompt">ls -la ./projects</div>
+
+    <div class="project-card" data-id="PROJECT_01">
+      <div class="ptitle">Drug Disease Prediction System</div>
+      <div class="pdesc">Full-stack ML prediction system with Python FastAPI backend and React frontend. SVM, Random Forest, Gradient Boosting, and Neural Network ensemble with MLflow experiment tracking. 6-feature biomarker pipeline with StandardScaler. Deployed with Docker + CI/CD.</div>
+      <div class="pmetric">Accuracy: <span>85%+</span> &nbsp;|&nbsp; Users: <span>1.5K+</span> &nbsp;|&nbsp; API Latency: <span>&lt;200ms</span></div>
+      <span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">React</span><span class="tag">MLflow</span><span class="tag">scikit-learn</span><span class="tag">Docker</span><span class="tag">CI/CD</span>
+    </div>
+
+    <div class="project-card" data-id="PROJECT_02">
+      <div class="ptitle">LetsGoPark Website</div>
+      <div class="pdesc">ASP.NET Core web application aggregating 400+ municipal, state, and federal parks in the Seattle area. Geospatial search and filtering with optimized SQL queries. Responsive frontend deployed with GitHub Actions CI/CD.</div>
+      <div class="pmetric">Parks indexed: <span>400+</span> &nbsp;|&nbsp; Perf improvement: <span>40%</span></div>
+      <span class="tag">C#</span><span class="tag">ASP.NET Core</span><span class="tag">SQL</span><span class="tag">HTML/CSS/JS</span><span class="tag">GitHub Actions</span>
+    </div>
+
+    <div class="project-card" data-id="PROJECT_03">
+      <div class="ptitle">MedicalRecordsAPI</div>
+      <div class="pdesc">Production-grade REST API with FastAPI, PostgreSQL, SQLAlchemy ORM, Redis caching, Alembic migrations, JWT/OAuth2 auth, Docker containerization, and GitHub Actions CI/CD pipeline.</div>
+      <div class="pmetric">Stack: <span>FastAPI + PostgreSQL + Redis + Docker</span></div>
+      <span class="tag">FastAPI</span><span class="tag">PostgreSQL</span><span class="tag">Redis</span><span class="tag">Docker</span><span class="tag">OAuth2</span><span class="tag">Alembic</span>
+    </div>
+
+    <div class="project-card" data-id="PROJECT_04">
+      <div class="ptitle">Autonomous Job Application Agent</div>
+      <div class="pdesc">AI pipeline: Apify scraper → semantic resume matching via embeddings → tailored cover letter generation → auto-apply. Playwright browser automation + Claude models.</div>
+      <div class="pmetric">Stack: <span>LangChain + Claude API + Playwright + Apify + PostgreSQL</span></div>
+      <span class="tag">LangChain</span><span class="tag">Claude API</span><span class="tag">Playwright</span><span class="tag">Apify</span><span class="tag">PostgreSQL</span><span class="tag">Python</span>
+    </div>
+  </div>
+
+  <!-- SKILLS -->
+  <div id="skills" class="section">
+    <div class="prompt">htop --skills --group</div>
+    <div id="skills-container"></div>
+  </div>
+
+  <!-- STATS -->
+  <div id="stats" class="section">
+    <div class="prompt">fetch --live github.com/ganesh040 && fetch /api/leetcode</div>
+    <div class="live-indicator"><span class="live-dot"></span>LIVE DATA — GitHub REST API + LeetCode (proxied via /api/leetcode)</div>
+    <div class="stats-grid">
+      <div class="stat-panel" data-title="[ GITHUB OVERVIEW ]"><div id="gh-overview"><div class="loading-msg">Fetching GitHub data...</div></div></div>
+      <div class="stat-panel" data-title="[ TOP LANGUAGES ]"><div id="gh-langs"><div class="loading-msg">Calculating language stats...</div></div></div>
+    </div>
+    <div class="stats-grid">
+      <div class="stat-panel" data-title="[ RECENT COMMITS ]"><div id="gh-commits"><div class="loading-msg">Loading commit history...</div></div></div>
+      <div class="stat-panel" data-title="[ LEETCODE PROGRESS ]"><div id="lc-stats"><div class="loading-msg">Querying LeetCode...</div></div></div>
+    </div>
+  </div>
+
+  <!-- EDUCATION -->
+  <div id="education" class="section">
+    <div class="prompt">cat education.log</div>
+    <div class="edu-entry">
+      <div class="edu-school">Indiana Wesleyan University</div>
+      <div class="edu-degree">M.S. in Data Analytics &nbsp;—&nbsp; GPA: 3.7 / 4.0</div>
+      <div class="edu-meta">NOV 2023 – AUG 2025 &nbsp;|&nbsp; Marion, Indiana, USA</div>
+    </div>
+    <div class="edu-entry">
+      <div class="edu-school">Aurora's Engineering College (JNTU)</div>
+      <div class="edu-degree">B.Tech in Computer Science</div>
+      <div class="edu-meta">JUL 2018 – JUL 2022 &nbsp;|&nbsp; Hyderabad, India</div>
+    </div>
+    <div style="margin-top:1.2rem;">
+      <div class="label">// CERTIFICATIONS</div>
+      <div style="margin-top:6px;">
+        <span class="cert-badge">AWS Certified Solutions Architect – Associate</span>
+        <span class="cert-badge">AWS Certified Cloud Practitioner</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTACT -->
+  <div id="contact" class="section">
+    <div class="prompt">cat contact.cfg</div>
+    <div class="output-block">
+      <div class="contact-line"><span class="ckey">EMAIL</span><a href="mailto:gudibandiganesh450@gmail.com" class="cval">gudibandiganesh450@gmail.com</a></div>
+      <div class="contact-line"><span class="ckey">WEBSITE</span><a href="https://ganeshreddygudibandi.com" class="cval" target="_blank">ganeshreddygudibandi.com</a></div>
+      <div class="contact-line"><span class="ckey">LINKEDIN</span><a href="https://linkedin.com/in/ganeshreddygudibandi" class="cval" target="_blank">linkedin.com/in/ganeshreddygudibandi</a></div>
+      <div class="contact-line"><span class="ckey">GITHUB</span><a href="https://github.com/ganesh040" class="cval" target="_blank">github.com/ganesh040</a></div>
+      <div class="contact-line"><span class="ckey">LOCATION</span><span class="cval">Seattle, WA, USA</span></div>
+      <div class="contact-line"><span class="ckey">STATUS</span><span class="cval open-status">[ OPEN TO WORK ]</span></div>
+    </div>
+    <div class="contact-note">// Response time: &lt; 24h. Open to full-stack, backend, or AI/ML roles.<span class="cursor-blink" style="margin-left:4px;"></span></div>
+  </div>
+
+</div>
+</div>
+
+<div class="status-bar">
+  <span>GANI@PORTFOLIO:~$ <span id="clock"></span></span>
+  <span>GPA: 3.7 &nbsp;|&nbsp; GITHUB: <span id="gh-status">connecting...</span> &nbsp;|&nbsp; CPU: <span id="cpu">0</span>%</span>
+</div>
+
+<script src="main.js"></script>
+</body>
+</html>
